@@ -1,0 +1,28 @@
+def is_prime(number):
+    """Check if a number is prime."""
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+def main():
+    """Main function for user interaction."""
+    print("A program to check for prime numbers.")
+    while True:
+        try:
+            user_input = input("Enter a number to check or 'exit' to exit: ")
+            if user_input.lower() == 'exit':
+                print("Program terminated.")
+                break
+            number = int(user_input)
+            if is_prime(number):
+                print(f"The number {number} is prime.")
+            else:
+                print(f"The number {number} is not prime.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+if __name__ == "__main__":
+    main()
